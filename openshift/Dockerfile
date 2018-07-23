@@ -2,7 +2,7 @@ FROM centos:7
 
 # Install Ansible Jupyter Kernel
 RUN yum -y install epel-release centos-release-ovirt42 && \
-    yum -y install ovirt-engine-sdk-python ansible python-psutil python-pip bzip2 python-crypto openssh openssh-clients gcc python-devel.x86_64 && \
+    yum -y install python-ovirt-engine-sdk4 ansible python-psutil python-pip bzip2 python-crypto openssh openssh-clients gcc python-devel.x86_64 && \
     localedef -c -i en_US -f UTF-8 en_US.UTF-8 && \
     pip install --no-cache-dir wheel psutil && \
     rm -rf /var/cache/yum
