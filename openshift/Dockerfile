@@ -1,15 +1,14 @@
 FROM centos:7
 
 # Install Ansible Jupyter Kernel
-RUN yum -y install epel-release  && \
-    yum -y install ansible python-psutil python-pip bzip2 python-crypto openssh openssh-clients gcc python-devel.x86_64 && \
+RUN yum -y install epel-release centos-release-ovirt42 && \
+    yum -y install ovirt-engine-sdk-python ansible python-psutil python-pip bzip2 python-crypto openssh openssh-clients gcc python-devel.x86_64 && \
     localedef -c -i en_US -f UTF-8 en_US.UTF-8 && \
     pip install --no-cache-dir wheel psutil && \
     rm -rf /var/cache/yum
 
 RUN pip install --no-cache-dir IPython==5.7.0
 RUN pip install --no-cache-dir notebook==5.6.0rc1
-RUN pip install --no-cache-dir ovirt-engine-sdk-python
 
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
