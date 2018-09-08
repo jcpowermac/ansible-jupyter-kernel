@@ -2,7 +2,19 @@ FROM centos:7
 
 # Install Ansible Jupyter Kernel
 RUN yum -y install epel-release  && \
-    yum -y install ansible python-psutil python-pip bzip2 python-crypto openssh openssh-clients gcc python-devel.x86_64 && \
+    yum -y install pandoc \
+        texlive-collection-latexrecommended \
+        texlive-latex-fonts \
+        texlive-xetex \
+        ansible \
+        python-psutil \
+        python-pip \
+        bzip2 \
+        python-crypto \
+        openssh \
+        openssh-clients \
+        gcc \
+        python-devel.x86_64 && \
     localedef -c -i en_US -f UTF-8 en_US.UTF-8 && \
     pip install --no-cache-dir wheel psutil && \
     rm -rf /var/cache/yum
@@ -24,6 +36,8 @@ ENV USER_NAME=${NB_USER}
 
 ENV PATH=${APP_ROOT}/bin:${PATH} 
 COPY bin/ ${APP_ROOT}/bin/
+COPY notebooks/ ${APP_ROOT}/
+
 RUN chmod -R u+x ${APP_ROOT}/bin && \
     chgrp -R 0 ${APP_ROOT} && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
