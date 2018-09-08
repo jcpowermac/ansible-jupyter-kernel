@@ -6,6 +6,7 @@ RUN yum -y install epel-release  && \
         texlive-collection-latexrecommended \
         texlive-latex-fonts \
         texlive-xetex \
+        texlive-xetex-def \
         ansible \
         python-psutil \
         python-pip \
