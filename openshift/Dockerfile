@@ -4,9 +4,11 @@ FROM centos:7
 RUN yum -y install epel-release  && \
     yum -y install pandoc \
         texlive-collection-latexrecommended \
+        texlive-collection-latex \
         texlive-latex-fonts \
         texlive-xetex \
         texlive-xetex-def \
+        texlive-adjustbox \
         ansible \
         python-psutil \
         python-pip \
