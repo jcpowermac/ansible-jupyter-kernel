@@ -1,15 +1,7 @@
 FROM centos:7
 
-# Install Ansible Jupyter Kernel
-#        texlive-collection-latexrecommended \
-#        texlive-collection-latex \
-#        texlive-latex-fonts \
-#        texlive-xetex \
-#        texlive-xetex-def \
-#        texlive-adjustbox \
 RUN yum -y install epel-release  && \
     yum -y install pandoc \
-        'texlive-*' \
         ansible \
         python-psutil \
         python-pip \
