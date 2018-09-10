@@ -17,7 +17,7 @@ RUN yum -y install epel-release  && \
 
 RUN pip install --no-cache-dir IPython==5.7.0
 RUN pip install --no-cache-dir notebook==5.6.0rc1
-RUN pip install --no-cache-dir openshift 
+RUN pip install --no-cache-dir kubernetes==6.0.0 
 
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \

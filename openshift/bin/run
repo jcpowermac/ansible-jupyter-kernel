@@ -2,4 +2,10 @@
 id
 whoami
 
-jupyter notebook --ip 0.0.0.0
+
+if [ -z "$JUPYTER_TOKEN" ]; then
+    jupyter notebook --ip 0.0.0.0
+else
+    jupyter notebook --NotebookApp.token="${JUPYTER_TOKEN}" --ip 0.0.0.0
+fi
+
